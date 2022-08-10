@@ -15,8 +15,16 @@ export const useContatosLogic = () => {
         setContato(newContato)
     }
 
+    const removeContato = (contato: Contato) => {
+        const id = contato.id
+        if (id) {
+            const novaLista = contatosList.filter(c => c.id !== id)
+            setContatosList(novaLista)
+        }
+    }
+
 
     return {
-        contato, addContato
+        contato, addContato, contatosList, removeContato
     }
 }

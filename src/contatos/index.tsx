@@ -7,13 +7,13 @@ export const Contatos: FC = () => {
 
     const logic = useContatosLogic();
     const handleSubmit = (contato: Contato) => {
-        console.log(contato)
+        logic.addContato(contato)
     }
 
     return (
         <>
             <ContatosForm submeterFormulario={handleSubmit} contato={logic.contato}></ContatosForm>
-            <ContatosList></ContatosList>
+            <ContatosList onDelete={logic.removeContato} list={logic.contatosList}></ContatosList>
         </>
     )
 }
